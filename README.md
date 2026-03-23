@@ -1,0 +1,1 @@
+# InheritanceCC3
