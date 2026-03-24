@@ -1,4 +1,4 @@
-// Superclass
+
 class Hardware {
     private int spec; // encapsulated
 
@@ -15,7 +15,6 @@ class Hardware {
     }
 }
 
-// Subclass Laptop
 class Laptop extends Hardware {
 
     public Laptop(int ram) {
@@ -39,7 +38,6 @@ class Laptop extends Hardware {
     }
 }
 
-// Subclass Phone
 class Phone extends Hardware {
 
     public Phone(int cameraMP) {
@@ -51,9 +49,7 @@ class Phone extends Hardware {
         System.out.println(getSpec() + " Megapixels");
     }
 
-    // "SQL-like" condition method
     public boolean matchesQuery(String query) {
-        // Simulating: SELECT * FROM Phone WHERE cameraMP = X
         if (query.equalsIgnoreCase("mp=16")) {
             return getSpec() == 16;
         } else if (query.equalsIgnoreCase("mp=48")) {
@@ -65,8 +61,6 @@ class Phone extends Hardware {
     }
 }
 
-
-// Main class (NO SQL here)
 public class Main {
     public static void main(String[] args) {
 
@@ -88,8 +82,7 @@ public class Main {
         int count16MP = 0;
         int count48MP = 0;
         int count50MP = 0;
-
-        // Single loop
+        
         for (Hardware device : devices) {
 
             device.displaySpec();
@@ -109,7 +102,6 @@ public class Main {
             }
         }
 
-        // Results
         System.out.println("\nCounts:");
         System.out.println("16GB RAM Laptops: " + count16GB);
         System.out.println("32GB RAM Laptops: " + count32GB);
