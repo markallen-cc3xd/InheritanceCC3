@@ -14,4 +14,4 @@ super(id, brand, spec, "Phone");
 }
 @override 
 public String interpretSpec() {
-return getSpec() + "Megapiixels";
+return getSpec() + "Megapixels";
