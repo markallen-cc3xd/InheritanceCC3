@@ -1,0 +1,11 @@
+public class Laptop extends Hardware {
+
+    public Laptop(int specValue) {
+        super(specValue);
+    }
+
+    @Override
+    public String getFormattedSpec() {
+        return specValue + "GB RAM";
+    }
+}
