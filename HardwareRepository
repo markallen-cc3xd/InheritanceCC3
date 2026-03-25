@@ -1,0 +1,37 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+public class HardwareRepository {
+
+    private static final String URL = "jdbc:sqlite:hardware.db";
+
+    public List<Hardware> getAllHardware() {
+        List<Hardware> list = new ArrayList<>();
+
+        try (Connection conn = DriverManager.getConnection(URL);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM hardware")) {
+
+            while (rs.next()) {
+                String type = rs.getString("type");
+                int spec = rs.getInt("spec_value");
+
+                // Polymorphic object creation
+                if ("Laptop".equalsIgnoreCase(type)) {
+                    list.add(new Laptop(spec));
+                } else if ("Phone".equalsIgnoreCase(type)) {
+                    list.add(new Phone(spec));
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+}
