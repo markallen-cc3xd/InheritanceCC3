@@ -1,0 +1,11 @@
+public class Phone extends Hardware {
+
+    public Phone(int specValue) {
+        super(specValue);
+    }
+
+    @Override
+    public String getFormattedSpec() {
+        return specValue + " Megapixels";
+    }
+}
